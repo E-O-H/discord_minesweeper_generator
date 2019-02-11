@@ -53,6 +53,7 @@ void calculate_numbers(vector<vector<int> >& board) {
             for (int di : range) {
                 for (int dj : range) {
                     if (! di && ! dj) continue;
+                    if (i + di < 0 || i + di >= dim_x || j + dj < 0 || j + dj >= dim_y) continue;
                     if (board[i + di][j + dj] == -1) ++count;
                 }
             }
@@ -61,7 +62,7 @@ void calculate_numbers(vector<vector<int> >& board) {
     }
 }
 
-void output(vector<vector<int> >& board) {
+void output(const vector<vector<int> >& board) {
     int dim_x = board.size();
     int dim_y = board[0].size();
 
